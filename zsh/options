@@ -1,0 +1,41 @@
+# --- History Settings (Replaces shell history logic) ---
+HISTFILE=~/.zsh_history
+HISTSIZE=32768
+SAVEHIST=32768
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_VERIFY
+
+# --- Completion System (Replaces shell completion & inputrc completion) ---
+autoload -Uz compinit
+compinit
+
+# Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Color completion for files
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# Menu selection (arrow keys to navigate completions)
+zstyle ':completion:*' menu select
+
+# --- Keybindings (Replaces inputrc) ---
+bindkey -e # Emacs mode (standard)
+
+# Arrow keys match history (The "history-search" behavior from your inputrc)
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+bindkey "^[[C" forward-char
+bindkey "^[[D" backward-char
+
+# Home/End keys
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char

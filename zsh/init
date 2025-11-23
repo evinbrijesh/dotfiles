@@ -1,0 +1,35 @@
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+if command -v try &> /dev/null; then
+  # Assuming 'try' supports zsh, otherwise fallback to bash logic
+  eval "$(try init ~/Work/tries)" 
+fi
+
+if command -v fzf &> /dev/null; then
+  # Zsh usually stores bindings here
+  [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+  [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+fi
+
+# ==============================================
+#   ZSH PLUGINS (Homebrew)
+# ==============================================
+
+# Auto-suggestions
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Syntax Highlighting
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Powerlevel10k Theme
+source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme

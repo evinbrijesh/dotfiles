@@ -1,0 +1,32 @@
+# =======================================================
+# 1. Powerlevel10k Instant Prompt (MUST BE FIRST)
+# =======================================================
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# =======================================================
+# 2. Homebrew Environment (MUST BE SECOND)
+# =======================================================
+# This ensures 'brew', 'eza', 'fzf' are in your PATH for the scripts below
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# =======================================================
+# 3. Load Dotfile Modules
+# =======================================================
+# Define the path to your dotfiles
+# $HOME refers to /home/evin
+MY_ZSH="$HOME/dotfiles/zsh"
+
+# Load P10K config
+# to config p10k run: p10k configure
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Source all the modules from the dotfiles folder
+source "$MY_ZSH/options"
+source "$MY_ZSH/envs"      # Variables
+source "$MY_ZSH/init"      # Plugins & Tools
+source "$MY_ZSH/aliases"   # Aliases
+source "$MY_ZSH/functions" # Functions
+
+
