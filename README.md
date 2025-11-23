@@ -5,8 +5,7 @@ This repository contains my personal system configuration files, including Zsh, 
 
 ## Setup tmux
 
-I have a [dedicated video](https://youtu.be/U-omALWIBos?si=MubYcjsjwzTbCR4g) that goes in depth as to how I setup and use tmux.
-It is very useful for managing sessions in the terminal as well as different windows and panes.
+tmux installation video guide [dedicated video](https://youtu.be/U-omALWIBos?si=MubYcjsjwzTbCR4g)
 
 tmux installation:
 ```
