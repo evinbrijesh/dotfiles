@@ -1,6 +1,11 @@
-# Editor used by CLI
+# 1. Define the Editor (The Source)
+export EDITOR="nvim"
+
+# 2. Use the Editor (The Destination)
 export SUDO_EDITOR="$EDITOR"
+
+# 3. Other Settings
 export BAT_THEME=ansi
 
-# opencode
-export PATH=/home/evin/.opencode/bin:$PATH
+# 4. Opencode
+export PATH="/home/evin/.opencode/bin:$PATH"

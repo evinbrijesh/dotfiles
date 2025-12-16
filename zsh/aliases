@@ -41,6 +41,7 @@ alias g='git'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
+alias gc='git clone'
 
 # Toggle Screen Sleep
 alias awake="killall hypridle && notify-send 'System' 'Insomnia Mode: ON (Screen will not sleep)'"
