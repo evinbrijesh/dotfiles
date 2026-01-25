@@ -9,3 +9,6 @@ export BAT_THEME=ansi
 
 # 4. Opencode
 export PATH="/home/evin/.opencode/bin:$PATH"
+
+export JAVA_HOME=/home/evin/.jdks/ms-17.0.17
+export PATH=$JAVA_HOME/bin:$PATH
