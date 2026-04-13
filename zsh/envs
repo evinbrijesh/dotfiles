@@ -8,7 +8,10 @@ export SUDO_EDITOR="$EDITOR"
 export BAT_THEME=ansi
 
 # 4. Opencode
-export PATH="/home/evin/.opencode/bin:$PATH"
+export PATH="/home/e0kt/.opencode/bin:$PATH"
 
-export JAVA_HOME=/home/evin/.jdks/ms-17.0.17
+export JAVA_HOME=/home/e0kt/.jdks/ms-17.0.17
 export PATH=$JAVA_HOME/bin:$PATH
+
+export OMARCHY_PATH=$HOME/.local/share/omarchy
+export PATH=$OMARCHY_PATH/bin:$PATH:$HOME/.local/bin
