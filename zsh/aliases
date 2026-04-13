@@ -46,3 +46,10 @@ alias gc='git clone'
 # Toggle Screen Sleep
 alias awake="killall hypridle && notify-send 'System' 'Insomnia Mode: ON (Screen will not sleep)'"
 alias rest="hypridle & disown && notify-send 'System' 'Sleep Mode: ON'"
+
+# Omarchy aliases (from omarchy bash/aliases)
+alias c='opencode'
+alias cx='printf "\033[2J\033[3J\033[H" && claude --allow-dangerously-skip-permissions'
+alias t='tmux attach || tmux new -s Work'
+alias eff='$EDITOR "$(ff)"'
+sff() { if [ $# -eq 0 ]; then echo "Usage: sff <destination>"; return 1; fi; local file; file=$(find . -type f -printf '%T@\t%p\n' | sort -rn | cut -f2- | ff) && [ -n "$file" ] && scp "$file" "$1"; }
