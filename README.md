@@ -1,42 +1,55 @@
 # Dotfiles
+Personal Linux workstation config. Keeps shell, editor, multiplexer, compositor, and AI tooling consistent across machines.
 
-This repository contains my personal system configuration files, including Zsh, Neovim, and related setup folders, used to customize and maintain a consistent development environment across machines. These files are intended for personal reference, backup, and quick re-setup, but may also be useful as a starting point for others configuring similar workflows.
+**Platform:** Linux — Wayland/Hyprland, Linuxbrew paths assumed.
 
+---
 
-## Setup tmux
+## What's in here
 
-tmux installation video guide [dedicated video](https://youtu.be/U-omALWIBos?si=MubYcjsjwzTbCR4g)
-
-tmux installation:
-```
-brew install tmux
-```
-
-Then you’ll want to add a config for it and it should be located in `~/.tmux.conf`.
-You can automatically use mine with this command:
-```
-curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/.tmux.conf --output ~/.tmux.conf
-```
-
-Also install tpm (tmux plugin manager):
-```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-Now you can start tmux by running:
-```
-tmux
-```
-
-Then install the plugins I use with it by pressing `CTRL-A` (my prefix) followed by `Shift-I`.
-If this doesn’t work or tmux was already running, try reloading the tmux config first:
-```
-tmux source ~/.tmux.conf
+```text
+.
+├── .zshrc                  # Entry point — loads p10k, sources zsh/rc
+├── zsh/                    # Modular zsh config
+│   ├── rc                  # Load orchestrator
+│   ├── options             # History, completion, keybindings
+│   ├── envs                # EDITOR, PATH additions, tool vars
+│   ├── init                # Plugin sourcing, tool hooks (mise, zoxide, fzf...)
+│   ├── aliases             # eza, fzf, git shorthands, Hypr/Omarchy helpers
+│   └── functions           # yazi cwd handoff, scp picker, omarchy fns
+│
+├── .tmux.conf              # tmux config — prefix, splits, copy mode, TPM plugins
+├── .tmux/                  # Vendored TPM clone [not curated]
+│
+├── .config/
+│   ├── nvim/               # Neovim — lazy.nvim, LSP, treesitter, AI (avante, copilot)
+│   ├── hypr/               # Hyprland — env vars, dual-monitor layout
+│   └── opencode/           # Opencode AI tool — provider config, custom agents
+│
+└── Modelfiles/             # Ollama model definitions (qwen3.5-coding, gemma4-coding)
 ```
 
-Then try pressing `CTRL-A` followed by `Shift-I` again.
-For the tmux theme that I’m using to work properly, you’ll probably need to install a newer version of bash:
-```
-brew install bash
-```
-Then reload the tmux configuration by doing `CTRL-A` (my prefix) followed by `r`.
+---
+
+## Layers
+
+**Zsh** — modular rc split into `options`, `envs`, `init`, `aliases`, `functions`. Powerlevel10k with instant prompt. Plugins via Linuxbrew: autosuggestions, syntax-highlighting, zoxide, fzf.
+
+**tmux** — `C-a` prefix, vim-style pane navigation/resizing, vi-like copy mode (`v`/`y`), Tokyo Night theme, and session persistence via resurrect + continuum.
+
+**Neovim** — `lua/evin/` namespace. `lazy.nvim` plugin manager. Full LSP stack via Mason (web/Python/Lua). Formatting with `conform.nvim`, linting with `nvim-lint`. AI via `avante.nvim` + `copilot.lua`. Tokyonight theme with transparency.
+
+**Hyprland** — Wayland-first env vars, dual-monitor config (HDMI 1080p@120 + laptop eDP 1080p@60 scaled). Commented blocks for alternate layouts.
+
+**Opencode** — local Ollama endpoint (`qwen3.5`), permissive read + cautious write shell policy. Nine custom agent roles/prompts: `architect`, `engineer`, `reviewer`, `debugger`, `docs`, `stack-picker`, `sec-auditor`, `log-tracer`, `test-writer`.
+
+**Modelfiles** — Ollama model definitions tuned for coding: low temperature, 32K context, security/correctness-focused system prompts.
+
+---
+
+## Notes
+
+- `.tmux/` and `.config/opencode/node_modules/` are vendored/generated — not curated config.
+- Several paths reference [Omarchy](https://github.com/basecamp/omarchy) runtime (`~/.local/share/omarchy/`), which lives outside this repo.
+- Absolute paths like `/home/e0kt/` appear in a few places and may need updates per machine.
+- `.config/nvim/README.md` is a placeholder from the upstream LazyVim template.
