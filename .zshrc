@@ -17,3 +17,4 @@ source ~/dotfiles/zsh/rc
 export PATH="$PATH:/home/e0kt/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH=$PATH:/usr/bin:/usr/sbin
