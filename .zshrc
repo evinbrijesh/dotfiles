@@ -18,3 +18,6 @@ export PATH="$PATH:/home/e0kt/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export PATH=$PATH:/usr/bin:/usr/sbin
+
+# Added by jcode installer
+export PATH="/home/e0kt/.local/bin:$PATH"
