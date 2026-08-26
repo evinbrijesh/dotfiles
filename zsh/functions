@@ -9,6 +9,6 @@ function y() {
 }
 
 # Omarchy functions (tmux layouts, compression, drives, transcoding, git worktrees, ssh forwarding)
-for fn_file in ~/.local/share/omarchy/default/bash/fns/*; do
+for fn_file in /usr/share/omarchy/default/bash/fns/*(N); do
   source "$fn_file"
 done
