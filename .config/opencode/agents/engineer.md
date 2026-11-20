@@ -83,3 +83,8 @@ in order:
 
 If after all of that the next step is still genuinely ambiguous, ask exactly
 one clarifying question. Never ask more than one.
+
+## Local Model Tool-Calling Rules
+- Always call `read` on a file before attempting `edit` or `write`.
+- Include 3–4 lines of exact surrounding context with matching leading spaces in `oldString`.
+- If `edit` fails due to a whitespace mismatch, re-read the exact lines or use `write` to update the file cleanly.
