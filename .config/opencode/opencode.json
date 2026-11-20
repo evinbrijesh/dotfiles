@@ -24,18 +24,9 @@
   "provider": {
     "ollama": {
       "models": {
-        "qwen3.5-coding:latest": {
-  "name": "Qwen 3.5 9B Coding (32K)",
-  "limit": {
-    "context": 32768,
-    "output": 4096
-  },
-  "options": {
-    "reasoningEffort": "none"
-  }
-},
-        "qwen3.5:9b": {
-          "name": "Qwen 3.5 9B (32K)",
+        "qwen2.5-coder:7b": {
+          "name": "Qwen 2.5 Coder 7B (32K)",
+          "tools": true,
           "limit": {
             "context": 32768,
             "output": 4096
@@ -43,20 +34,7 @@
         },
         "hf.co/HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive:Q5_K_M": {
           "name": "Gemma 4 E4B (32K)",
-          "limit": {
-            "context": 32768,
-            "output": 4096
-          }
-        },
-        "gemma4-coding:latest": {
-          "name": "Gemma 4 Coding (32K)",
-          "limit": {
-            "context": 32768,
-            "output": 4096
-          }
-        },
-        "opencode-engineer:latest": {
-          "name": "OpenCode Engineer (32K)",
+          "tools": true,
           "limit": {
             "context": 32768,
             "output": 4096
